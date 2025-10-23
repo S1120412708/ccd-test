@@ -1,31 +1,35 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
+    // 初始化學生分數
+    int score[10] = {85, 90, 60, 92, 100, 76, 50, 89, 84, 40};
 
-    // 第一部分：印出星星三角形
-    cout << "=== 星星三角形 ===" << endl;
-    for (int i = 1; i <= 6; ++i) {
-        for (int j = 1; j <= i; ++j) {
-            cout << "*";
+    // A, B, C, D, F 等級的計數器
+    int gradeCount[5] = {0};
+
+    // 根據分數分類統計
+    for (int i = 0; i < 10; ++i) {
+        if (score[i] >= 90) {
+            gradeCount[0]++; // A
+        } else if (score[i] >= 80) {
+            gradeCount[1]++; // B
+        } else if (score[i] >= 70) {
+            gradeCount[2]++; // C
+        } else if (score[i] >= 60) {
+            gradeCount[3]++; // D
+        } else {
+            gradeCount[4]++; // F
         }
-        cout << endl;
     }
 
-    cout << endl; // 分隔空行
-
-    // 第二部分：印出九九乘法表
-    cout << "=== 九九乘法表 ===" << endl;
-    int i = 1;
-    while (i <= 9) {
-        int j = 1;
-        while (j <= 9) {
-            cout << i << " * " << j << " = " << i * j << "\t";
-            j++;
-        }
-        cout << endl;
-        i++;
-    }
+    // 輸出結果
+    cout << "A等人數: " << gradeCount[0] << endl;
+    cout << "B等人數: " << gradeCount[1] << endl;
+    cout << "C等人數: " << gradeCount[2] << endl;
+    cout << "D等人數: " << gradeCount[3] << endl;
+    cout << "F等人數: " << gradeCount[4] << endl;
 
     return 0;
 }
